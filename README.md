@@ -10,3 +10,4 @@ Winning or losing the game is based on whether or not the word is guessed correc
 Hangman can be played against a computer or against a friend. When playing against a computer, a word is picked randomly from a list and the player is then allowed to guess letters in the word until they get it right or run out of guesses. Playing against a friend works the same as playing against a computer except that either you or your friend can input a word of your own to guess.
 
 [Flowchart](https://drive.google.com/open?id=14bxBz9rOKveCxNfabGsJ4oydRMORAnmw)
+[Trello board](https://trello.com/b/wvEItA2J/hangman)
