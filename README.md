@@ -8,3 +8,5 @@ If the guesser guesses a letter that is part of the chosen word, the other playe
 Winning or losing the game is based on whether or not the word is guessed correctly before the hanged man stick figure is fully drawn. The guesser can win the game by guessing each letter of the word correctly, or by guessing the whole word correctly. Should the guesser not manage to guess the word before the hanged man stick figure is complete, the guesser has lost.
 ## Gamemodes
 Hangman can be played against a computer or against a friend. When playing against a computer, a word is picked randomly from a list and the player is then allowed to guess letters in the word until they get it right or run out of guesses. Playing against a friend works the same as playing against a computer except that either you or your friend can input a word of your own to guess.
+
+[Flowchart](https://drive.google.com/open?id=14bxBz9rOKveCxNfabGsJ4oydRMORAnmw)
