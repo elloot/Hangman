@@ -7,7 +7,7 @@ import java.util.Scanner;
 /**
  * Class description
  * 2020-01-17
- * Author: Elliot Duchek
+ * Author: Elliot Duchek, Tobias Sandström
  */
 public class word {
     public String getWord () {
