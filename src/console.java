@@ -4,8 +4,8 @@
  * Author: Elliot Duchek, Tobias Sandström
  */
 public class console {
-    public void drawMan(int guesses) {
-        switch (guesses) {
+    public void drawMan(int numGuesses) {
+        switch (numGuesses) {
             case 0:
                 System.out.println("      _______");
                 System.out.println("     |/      |");
@@ -21,7 +21,7 @@ public class console {
                 System.out.println("     |      \\O/");
                 System.out.println("     |       |");
                 System.out.println("     |      / ");
-                System.out.println("     |              Guesses remaining: 1");
+                System.out.println("     |              Guesses remaining: " + numGuesses);
                 System.out.println("    _|___");
                 break;
             case 2:
@@ -30,7 +30,7 @@ public class console {
                 System.out.println("     |      \\O/");
                 System.out.println("     |       |");
                 System.out.println("     |");
-                System.out.println("     |              Guesses remaining: 2");
+                System.out.println("     |              Guesses remaining: " + numGuesses);
                 System.out.println("    _|___");
                 break;
             case 3:
@@ -39,7 +39,7 @@ public class console {
                 System.out.println("     |      \\O");
                 System.out.println("     |       |");
                 System.out.println("     |");
-                System.out.println("     |              Guesses remaining: 3");
+                System.out.println("     |              Guesses remaining: " + numGuesses);
                 System.out.println("    _|___");
                 break;
             case 4:
@@ -48,7 +48,7 @@ public class console {
                 System.out.println("     |       O");
                 System.out.println("     |       |");
                 System.out.println("     |");
-                System.out.println("     |              Guesses remaining: 4");
+                System.out.println("     |              Guesses remaining: " + numGuesses);
                 System.out.println("    _|___");
                 break;
             case 5:
@@ -57,7 +57,7 @@ public class console {
                 System.out.println("     |       O");
                 System.out.println("     |");
                 System.out.println("     |");
-                System.out.println("     |              Guesses remaining: 5");
+                System.out.println("     |              Guesses remaining: " + numGuesses);
                 System.out.println("    _|___");
                 break;
             case 6:
@@ -66,7 +66,7 @@ public class console {
                 System.out.println("     |");
                 System.out.println("     |");
                 System.out.println("     |");
-                System.out.println("     |              Guesses remaining: 6");
+                System.out.println("     |              Guesses remaining: " + numGuesses);
                 System.out.println("    _|___");
                 break;
         }
