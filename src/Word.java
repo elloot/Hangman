@@ -8,7 +8,7 @@ import java.util.Scanner;
  * 2020-01-17
  * Author: Elliot Duchek, Tobias Sandström
  */
-public class word {
+public class Word {
     String getWord() {
         Scanner in;
 

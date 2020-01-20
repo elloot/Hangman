@@ -6,7 +6,7 @@ import java.util.Scanner;
  * 2020-01-17
  * Author: Elliot Duchek, Tobias Sandström
  */
-public class console {
+public class Console {
     private Scanner in = new Scanner(System.in);
 
     public void drawMan(int numGuesses) {
