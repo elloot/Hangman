@@ -1,6 +1,5 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -10,7 +9,7 @@ import java.util.Scanner;
  * Author: Elliot Duchek, Tobias Sandström
  */
 public class word {
-    public String getWord () {
+    String getWord() {
         Scanner in;
 
         try {

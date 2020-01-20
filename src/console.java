@@ -1,9 +1,14 @@
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 /**
  * Class description
  * 2020-01-17
  * Author: Elliot Duchek, Tobias Sandström
  */
 public class console {
+    private Scanner in = new Scanner(System.in);
+
     public void drawMan(int numGuesses) {
         switch (numGuesses) {
             case 0:
@@ -70,5 +75,22 @@ public class console {
                 System.out.println("    _|___");
                 break;
         }
+    }
+
+    int getSelection() {
+        int gameSelect;
+        do {
+            try {
+                gameSelect = in.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("That's not a number");
+                gameSelect = 0;
+            }
+
+        } while (gameSelect != 1 && gameSelect != 2);
+
+        in.nextLine();
+
+        return gameSelect;
     }
 }
