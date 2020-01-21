@@ -6,10 +6,11 @@ import java.util.Scanner;
  * 2020-01-17
  * Author: Elliot Duchek, Tobias Sandström
  */
-public class Console {
+class Console {
+    //initialises scanner for all methods to use
     private Scanner in = new Scanner(System.in);
 
-    public void drawMan(int numGuesses) {
+    void drawMan(int numGuesses) {
         switch (numGuesses) {
             case 0:
                 System.out.println("      _______");
@@ -78,12 +79,13 @@ public class Console {
     }
 
     int getSelection() {
+        //asks user for wanted gamemode
         int gameSelect;
         do {
             try {
                 gameSelect = in.nextInt();
             } catch (InputMismatchException e) {
-                System.out.println("That's not a number");
+                System.out.println("That's not a number, please input either 1 or 2");
                 gameSelect = 0;
             }
 
@@ -92,5 +94,23 @@ public class Console {
         in.nextLine();
 
         return gameSelect;
+    }
+
+    String getPlayerWord() {
+        String staticWord;
+        do {
+            staticWord = in.nextLine();
+
+            for (int i = 0; i < staticWord.length(); i++) {
+                if (!(Character.isLetter(staticWord.charAt(i)))) {
+                    System.out.println("\"" + staticWord + "\"" + " is not a valid word, please try again");
+                    staticWord = null;
+                    break;
+                }
+            }
+
+        } while (staticWord == null);
+
+        return staticWord;
     }
 }
