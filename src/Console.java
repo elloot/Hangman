@@ -97,20 +97,20 @@ class Console {
     }
 
     String getPlayerWord() {
-        String staticWord;
+        String inWord;
         do {
-            staticWord = in.nextLine();
+            inWord = in.nextLine();
 
-            for (int i = 0; i < staticWord.length(); i++) {
-                if (!(Character.isLetter(staticWord.charAt(i)))) {
-                    System.out.println("\"" + staticWord + "\"" + " is not a valid word, please try again");
-                    staticWord = null;
+            for (int i = 0; i < inWord.length(); i++) {
+                if (!(Character.isLetter(inWord.charAt(i)))) {
+                    System.out.println("\"" + inWord + "\"" + " is not a valid word, please try again");
+                    inWord = null;
                     break;
                 }
             }
 
-        } while (staticWord == null);
+        } while (inWord == null);
 
-        return staticWord;
+        return inWord;
     }
 }
