@@ -10,6 +10,10 @@ class Console {
     //initialises scanner for all methods to use
     private Scanner in = new Scanner(System.in);
 
+    private Word w = new Word();
+
+    //draws a certain stage of the hanged man based on
+    //how many guesses are left and shows how many guesses are left
     void drawMan(int numGuesses) {
         switch (numGuesses) {
             case 0:
@@ -82,35 +86,45 @@ class Console {
         //asks user for wanted gamemode
         int gameSelect;
         do {
+            //saves the program from crashing if input is NaN
             try {
                 gameSelect = in.nextInt();
             } catch (InputMismatchException e) {
-                System.out.println("That's not a number, please input either 1 or 2");
                 gameSelect = 0;
             }
+            //"clears" the scanner
+            in.nextLine();
+
+            System.out.print("That's not the right input! ");
 
         } while (gameSelect != 1 && gameSelect != 2);
 
+        //"clears" the scanner again"
         in.nextLine();
 
         return gameSelect;
     }
 
+    //gets a word to be guessed at from the player
     String getPlayerWord() {
         String inWord;
         do {
             inWord = in.nextLine();
 
-            for (int i = 0; i < inWord.length(); i++) {
-                if (!(Character.isLetter(inWord.charAt(i)))) {
-                    System.out.println("\"" + inWord + "\"" + " is not a valid word, please try again");
-                    inWord = null;
-                    break;
-                }
-            }
+            in.nextLine();
 
-        } while (inWord == null);
-
+        } while (w.isValid(inWord));
         return inWord;
+    }
+
+    String getPlayerGuess() {
+        String guess;
+        do {
+            guess = in.nextLine();
+
+            in.nextLine();
+
+        } while (w.isValid(guess));
+        return guess;
     }
 }

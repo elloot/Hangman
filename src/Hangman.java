@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * Class description
  * 2020-01-17
@@ -16,17 +18,32 @@ class Hangman {
 
         //gets random word if player wants to play against AI
         //gets player input word if player wants to play against a friend
+        String staticWord;
         if (gameSelect == 1) {
-            String staticWord = w.getWord();
+            staticWord = w.getWord();
+
+            ArrayList<Character> underscores = new ArrayList<>();
+            for (int i= 0; i < staticWord.length(); i++) {
+                underscores.add('_');
+            }
         } else {
             System.out.print("Please input a word to be guessed at: ");
-            String staticWord = c.getPlayerWord();
+            staticWord = c.getPlayerWord();
         }
 
         //asks the player to guess the word
         System.out.print("Please guess either a letter in the word or the entire word: ");
+        String guess = c.getPlayerGuess();
 
+        String guessType = w.isLetterOrWord(guess, staticWord);
 
+        if (guessType.equalsIgnoreCase("letter")) {
+
+        } else if (guessType.equalsIgnoreCase("word")) {
+
+        } else {
+            System.out.println("This guess is invalid");
+        }
 
     }
 }

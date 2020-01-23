@@ -9,6 +9,7 @@ import java.util.Scanner;
  * Author: Elliot Duchek, Tobias Sandström
  */
 class Word {
+    //gets a random word from a file
     String getWord() {
         Scanner in;
 
@@ -17,6 +18,7 @@ class Word {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
             in = new Scanner(System.in);
+            System.out.println("File not found");
         }
 
         ArrayList<String> words = new ArrayList<>();
@@ -25,5 +27,34 @@ class Word {
         }
 
         return words.get((int) (Math.random()*words.size()));
+    }
+
+    //checks if the input word is valid
+    Boolean isValid(String word) {
+        do {
+            //checks if the word contains characters that aren't letters
+            //and disallows such words
+            assert word != null;
+            for (int i = 0; i < word.length(); i++) {
+                if (!(Character.isLetter(word.charAt(i)))) {
+                    System.out.println("\"" + word + "\"" + " is not a valid, please try again");
+                    word= null;
+                    break;
+                }
+            }
+
+        } while (word == null);
+
+        return true;
+    }
+
+    String isLetterOrWord(String guess, String staticWord) {
+        if (guess.length() == 1) {
+            return "letter";
+        } else if (guess.length() == staticWord.length()) {
+            return "word";
+        } else {
+            return "invalid";
+        }
     }
 }
