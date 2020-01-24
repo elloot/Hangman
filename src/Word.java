@@ -9,7 +9,12 @@ import java.util.Scanner;
  * Author: Elliot Duchek, Tobias Sandström
  */
 class Word {
-    Console c = new Console();
+    private Console c;
+
+    public Word(Console c) {
+        this.c = c;
+    }
+
     //gets a random word from a file
     String getWord() {
         Scanner in;

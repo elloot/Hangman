@@ -11,8 +11,6 @@ class Console {
     //initialises scanner for all methods to use
     private Scanner in = new Scanner(System.in);
 
-    private Word w = new Word();
-
     //draws a certain stage of the hanged man based on
     //how many guesses are left and shows how many guesses are left
     void drawMan(int numGuesses, ArrayList<Character> underscores) {
@@ -98,7 +96,9 @@ class Console {
             //"clears" the scanner
             in.nextLine();
 
-            System.out.print("That's not the right input! ");
+            if (gameSelect != 1 && gameSelect != 2) {
+                System.out.print("That's not the right input! ");
+            }
 
         } while (gameSelect != 1 && gameSelect != 2);
 
@@ -110,6 +110,7 @@ class Console {
 
     //gets a word to be guessed at from the player
     String getPlayerWord() {
+        Word w = new Word(this);
         String inWord;
         do {
             inWord = in.nextLine();
@@ -121,6 +122,7 @@ class Console {
     }
 
     String getPlayerGuess() {
+        Word w = new Word(this);
         String guess;
         do {
             guess = in.nextLine();
