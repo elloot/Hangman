@@ -117,7 +117,7 @@ class Console {
 
             inWord = in.nextLine();
 
-        } while (w.isValid(inWord));
+        } while (!(w.isValid(inWord)));
         return inWord.toUpperCase();
     }
 

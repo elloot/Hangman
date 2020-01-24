@@ -27,11 +27,13 @@ class Word {
             System.out.println("File not found");
         }
 
+        //writes the content
         ArrayList<String> words = new ArrayList<>();
         while (in.hasNextLine()) {
             words.add(in.nextLine());
         }
 
+        //gets a random place in the array and returns that word
         return words.get((int) (Math.random()*words.size())).toUpperCase();
     }
 
