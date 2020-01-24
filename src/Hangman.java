@@ -39,7 +39,7 @@ class Hangman {
         String guessType = w.isLetterOrWord(guess, staticWord);
 
         if (guessType.equalsIgnoreCase("letter")) {
-            Character cGuess = guess.charAt(0);
+            char cGuess = guess.charAt(0);
             numGuesses = w.checkGuessLetter(staticWord, visibleWord, cGuess, numGuesses);
         } else if (guessType.equalsIgnoreCase("word")) {
 

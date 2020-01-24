@@ -38,7 +38,7 @@ class Word {
     }
 
     //checks if the input word is valid
-    Boolean isValid(String word) {
+    boolean isValid(String word) {
         //checks if the word contains characters that aren't letters
         //and disallows such words
         assert word != null;
@@ -64,17 +64,17 @@ class Word {
     }
 
     int checkGuessLetter(String staticWord, ArrayList<Character> visibleWord, Character guess, int numGuesses) {
-        int correct = 0;
+        boolean correct = false;
         //checks if the guessed letter is in the given word, if it is,
         // replace the underscore at that letters position
         for (int i = 0; i < staticWord.length(); i++) {
             if (guess.equals(staticWord.charAt(i))) {
                 visibleWord.set(i, guess);
-                correct++;
+                correct = true;
             }
         }
 
-        if (correct < 1) {
+        if (correct) {
             numGuesses--;
         }
 

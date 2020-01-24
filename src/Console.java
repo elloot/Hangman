@@ -140,4 +140,10 @@ class Console {
         System.out.println(" | |__| | |__| | |____ ____) |___) | |____| | \\ \\      \\  /\\  /   _| |_| |\\  |____) |");
         System.out.println("  \\_____|\\____/|______|_____/_____/|______|_|  \\_\\      \\/  \\/   |_____|_| \\_|_____/");
     }
+
+    static void clearConsole() {
+        for (int i = 0; i < 50; i++) {
+            System.out.println();
+        }
+    }
 }
