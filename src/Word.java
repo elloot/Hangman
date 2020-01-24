@@ -37,21 +37,18 @@ class Word {
 
     //checks if the input word is valid
     Boolean isValid(String word) {
-        do {
-            //checks if the word contains characters that aren't letters
-            //and disallows such words
-            assert word != null;
-            for (int i = 0; i < word.length(); i++) {
-                if (!(Character.isLetter(word.charAt(i)))) {
-                    System.out.println("\"" + word + "\"" + " is not a valid, please try again");
-                    word= null;
-                    break;
-                }
+        //checks if the word contains characters that aren't letters
+        //and disallows such words
+        assert word != null;
+        for (int i = 0; i < word.length(); i++) {
+            if (!(Character.isLetter(word.charAt(i)))) {
+                System.out.print("\"" + word + "\"" + " is not valid, please try again");
+                word = null;
+                break;
             }
+        }
 
-        } while (word == null);
-
-        return true;
+        return word != null;
     }
 
     String isLetterOrWord(String guess, String staticWord) {
@@ -84,12 +81,12 @@ class Word {
         return numGuesses;
     }
     //Method that tests if the guessed word is equal to the set word
-    void checkGuessWord(String staticWord, String guess, int numGuesses) {
+    int checkGuessWord(String staticWord, String guess, int numGuesses) {
         if (guess.equals(staticWord)) {
-        Console.drawWin();
+            Console.drawWin();
+            return numGuesses;
         } else {
-        numGuesses--
-        return;
+            return --numGuesses;
         }
     }
 

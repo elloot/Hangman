@@ -94,7 +94,7 @@ class Console {
                 gameSelect = 0;
             }
             //"clears" the scanner
-            in.nextLine();
+            in = new Scanner(System.in);
 
             if (gameSelect != 1 && gameSelect != 2) {
                 System.out.print("That's not the right input! ");
@@ -103,7 +103,7 @@ class Console {
         } while (gameSelect != 1 && gameSelect != 2);
 
         //"clears" the scanner again"
-        in.nextLine();
+        in = new Scanner(System.in);
 
         return gameSelect;
     }
@@ -113,9 +113,9 @@ class Console {
         Word w = new Word(this);
         String inWord;
         do {
-            inWord = in.nextLine();
+            in = new Scanner(System.in);
 
-            in.nextLine();
+            inWord = in.nextLine();
 
         } while (w.isValid(inWord));
         return inWord.toUpperCase();
@@ -125,14 +125,14 @@ class Console {
         Word w = new Word(this);
         String guess;
         do {
+            in = new Scanner(System.in);
+
             guess = in.nextLine();
 
-            in.nextLine();
-
-        } while (w.isValid(guess));
+        } while (!(w.isValid(guess)));
         return guess;
     }
-    static void drawWin(){
+    static void drawWin() {
         System.out.println("  _____ _    _ ______  _____ _____ ______ _____    __          _______ _   _  _____");
         System.out.println("  / ____| |  | |  ____|/ ____/ ____|  ____|  __ \\   \\ \\        / /_   _| \\ | |/ ____|");
         System.out.println(" | |  __| |  | | |__  | (___| (___ | |__  | |__) |   \\ \\  /\\  / /  | | |  \\| | (___");
