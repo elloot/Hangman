@@ -21,14 +21,14 @@ class Hangman {
         String staticWord;
         if (gameSelect == 1) {
             staticWord = w.getWord();
-
-            ArrayList<Character> underscores = new ArrayList<>();
-            for (int i= 0; i < staticWord.length(); i++) {
-                underscores.add('_');
-            }
         } else {
             System.out.print("Please input a word to be guessed at: ");
             staticWord = c.getPlayerWord();
+        }
+
+        ArrayList<Character> visibleWord = new ArrayList<>();
+        for (int i= 0; i < staticWord.length(); i++) {
+            visibleWord.add('_');
         }
 
         //asks the player to guess the word

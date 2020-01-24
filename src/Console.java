@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -14,7 +15,7 @@ class Console {
 
     //draws a certain stage of the hanged man based on
     //how many guesses are left and shows how many guesses are left
-    void drawMan(int numGuesses) {
+    void drawMan(int numGuesses, ArrayList<Character> underscores) {
         switch (numGuesses) {
             case 0:
                 System.out.println("      _______");
@@ -80,6 +81,8 @@ class Console {
                 System.out.println("    _|___");
                 break;
         }
+
+        System.out.print(underscores);
     }
 
     int getSelection() {
