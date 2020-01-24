@@ -10,7 +10,7 @@ class Hangman {
         //initialises variables of Console and Word datatypes
         // the program's methods are split up in different class-files for easier readability
         Console c = new Console();
-        Word w = new Word();
+        Word w = new Word(c);
         int numGuesses = 6;
 
         //gamemode selection
@@ -39,7 +39,8 @@ class Hangman {
         String guessType = w.isLetterOrWord(guess, staticWord);
 
         if (guessType.equalsIgnoreCase("letter")) {
-
+            Character cGuess = guess.charAt(0);
+            numGuesses = w.checkGuessLetter(staticWord, visibleWord, cGuess, numGuesses);
         } else if (guessType.equalsIgnoreCase("word")) {
 
         } else {
