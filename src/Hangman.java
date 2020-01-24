@@ -11,6 +11,7 @@ class Hangman {
         // the program's methods are split up in different class-files for easier readability
         Console c = new Console();
         Word w = new Word();
+        int numGuesses = 6;
 
         //gamemode selection
         System.out.print("Type 1 to play against an advanced AI and type 2 to play against a friend: ");

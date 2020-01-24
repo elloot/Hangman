@@ -9,6 +9,7 @@ import java.util.Scanner;
  * Author: Elliot Duchek, Tobias Sandström
  */
 class Word {
+    Console c = new Console();
     //gets a random word from a file
     String getWord() {
         Scanner in;
@@ -26,7 +27,7 @@ class Word {
             words.add(in.nextLine());
         }
 
-        return words.get((int) (Math.random()*words.size()));
+        return words.get((int) (Math.random()*words.size())).toUpperCase();
     }
 
     //checks if the input word is valid
@@ -56,5 +57,25 @@ class Word {
         } else {
             return "invalid";
         }
+    }
+
+    int checkGuessLetter(String staticWord, ArrayList<Character> visibleWord, Character guess, int numGuesses) {
+        int correct = 0;
+        //checks if the guessed letter is in the given word, if it is,
+        // replace the underscore at that letters position
+        for (int i = 0; i < staticWord.length(); i++) {
+            if (guess.equals(staticWord.charAt(i))) {
+                visibleWord.set(i, guess);
+                correct++;
+            }
+        }
+
+        if (correct < 1) {
+            numGuesses--;
+        }
+
+        c.drawMan(numGuesses, visibleWord);
+
+        return numGuesses;
     }
 }

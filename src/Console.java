@@ -117,7 +117,7 @@ class Console {
             in.nextLine();
 
         } while (w.isValid(inWord));
-        return inWord;
+        return inWord.toUpperCase();
     }
 
     String getPlayerGuess() {
