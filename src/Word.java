@@ -78,4 +78,14 @@ class Word {
 
         return numGuesses;
     }
+    //Method that tests if the guessed word is equal to the set word
+    void checkGuessWord(String staticWord, String guess, int numGuesses) {
+        if (guess.equals(staticWord)) {
+        Console.drawWin();
+        } else {
+        numGuesses--
+        return;
+        }
+    }
+
 }
