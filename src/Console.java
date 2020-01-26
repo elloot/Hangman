@@ -152,7 +152,7 @@ class Console {
     }
 
     //tells the players the the guesser has won, exits the program
-    static void drawWin() {
+    void drawWin() {
         System.out.println("   _____ _    _ ______  _____ _____ ______ _____    __          _______ _   _  _____");
         System.out.println("  / ____| |  | |  ____|/ ____/ ____|  ____|  __ \\   \\ \\        / /_   _| \\ | |/ ____|");
         System.out.println(" | |  __| |  | | |__  | (___| (___ | |__  | |__) |   \\ \\  /\\  / /  | | |  \\| | (___");
@@ -164,7 +164,7 @@ class Console {
     }
 
     //"clears" the console by printing 50 empty lines
-    static void clearConsole() {
+    void clearConsole() {
         for (int i = 0; i < 50; i++) {
             System.out.println();
         }
