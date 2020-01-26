@@ -63,7 +63,7 @@ class Word {
         }
     }
 
-    int checkGuessLetter(String staticWord, ArrayList<Character> visibleWord, Character guess, int numGuesses) {
+    int checkGuessLetter(String staticWord, ArrayList<Character> visibleWord, Character guess, int numGuesses, ArrayList<Character> wrongGuesses) {
         boolean correct = false;
         //checks if the guessed letter is in the given word, if it is,
         // replace the underscore at that letters position
@@ -74,11 +74,10 @@ class Word {
             }
         }
 
-        if (correct) {
+        if (!correct) {
             numGuesses--;
+            wrongGuesses.add(guess);
         }
-
-        c.drawMan(numGuesses, visibleWord);
 
         return numGuesses;
     }

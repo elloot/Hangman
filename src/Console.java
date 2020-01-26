@@ -13,7 +13,7 @@ class Console {
 
     //draws a certain stage of the hanged man based on
     //how many guesses are left and shows how many guesses are left
-    void drawMan(int numGuesses, ArrayList<Character> underscores) {
+    void drawMan(int numGuesses) {
         switch (numGuesses) {
             case 0:
                 System.out.println("      _______");
@@ -23,6 +23,8 @@ class Console {
                 System.out.println("     |      / \\ ");
                 System.out.println("     |              Picker wins!");
                 System.out.println("    _|___");
+
+                System.exit(1337);
                 break;
             case 1:
                 System.out.println("      _______");
@@ -79,8 +81,22 @@ class Console {
                 System.out.println("    _|___");
                 break;
         }
+    }
 
-        System.out.print(underscores);
+    void drawWord(ArrayList<Character> visibleWord, ArrayList<Character> wrongGuesses) {
+        //shows the guesser what letters have been guessed in the word
+        System.out.println();
+        System.out.print("    ");
+        for (int i = 0; i < visibleWord.size(); i++) {
+            System.out.print(visibleWord.get(i) + " ");
+        }
+
+        //shows the guesser which letters they've guessed wrong
+        System.out.println("\n\n    Incorrect letters:");
+        System.out.print("    ");
+        for (int i = 0; i < wrongGuesses.size(); i++) {
+            System.out.print(wrongGuesses.get(i) + ", ");
+        }
     }
 
     int getSelection() {
@@ -130,7 +146,7 @@ class Console {
             guess = in.nextLine();
 
         } while (!(w.isValid(guess)));
-        return guess;
+        return guess.toUpperCase();
     }
     static void drawWin() {
         System.out.println("  _____ _    _ ______  _____ _____ ______ _____    __          _______ _   _  _____");
