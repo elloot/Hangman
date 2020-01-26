@@ -34,6 +34,9 @@ class Hangman {
             visibleWord.add('_');
         }
 
+        c.drawMan(numGuesses);
+        c.drawWord(visibleWord, wrongGuesses);
+
         while (true) {
             //asks the player to guess the word
             System.out.print("\n\nPlease guess either a letter in the word or the entire word: ");
