@@ -34,7 +34,7 @@ class Word {
         }
 
         //gets a random place in the array and returns that word
-        return words.get((int) (Math.random()*words.size())).toUpperCase();
+        return words.get((int) (Math.random() * words.size())).toUpperCase();
     }
 
     //checks if the input word is valid
@@ -42,15 +42,32 @@ class Word {
         //checks if the word contains characters that aren't letters
         //and disallows such words
         assert word != null;
+
+        boolean valid = true;
         for (int i = 0; i < word.length(); i++) {
             if (!(Character.isLetter(word.charAt(i)))) {
                 System.out.print("\"" + word + "\"" + " is not valid, please try again: ");
-                word = null;
+                valid = false;
                 break;
             }
         }
 
-        return word != null;
+        return valid;
+    }
+
+    //checks if the letter that's being guessed has been guessed before
+    boolean notPreviousGuess(String guess, ArrayList<String> guesses) {
+        boolean allowed = true;
+
+        for (int i = 0; i < guesses.size(); i++) {
+            if (guess.equals(guesses.get(i))) {
+                allowed = false;
+                System.out.print("You've already guessed this letter, please guess another one: ");
+                break;
+            }
+        }
+
+        return allowed;
     }
 
     String isLetterOrWord(String guess, String staticWord) {
@@ -81,6 +98,7 @@ class Word {
 
         return numGuesses;
     }
+
     //Method that tests if the guessed word is equal to the set word
     int checkGuessWord(String staticWord, String guess, int numGuesses) {
         if (guess.equals(staticWord)) {

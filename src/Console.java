@@ -137,16 +137,18 @@ class Console {
 
     //gets the players guess, checks if it is valid
     //if not, wait for valid guess
-    String getPlayerGuess() {
+    String getPlayerGuess(ArrayList<String> guesses) {
         Word w = new Word(this);
         String guess;
+
         do {
             in = new Scanner(System.in);
 
-            guess = in.nextLine();
+            guess = in.nextLine().toUpperCase();
 
-        } while (!(w.isValid(guess)));
-        return guess.toUpperCase();
+        } while (!(w.notPreviousGuess(guess, guesses)) || !(w.isValid(guess)));
+
+        return guess;
     }
 
     //tells the players the the guesser has won, exits the program

@@ -13,6 +13,7 @@ class Hangman {
         Word w = new Word(c);
         int numGuesses = 6;
         ArrayList<Character> wrongGuesses = new ArrayList<>();
+        ArrayList<String> guesses = new ArrayList<>();
 
         //gamemode selection
         System.out.print("Type 1 to play against an advanced AI and type 2 to play against a friend: ");
@@ -36,19 +37,28 @@ class Hangman {
         while (true) {
             //asks the player to guess the word
             System.out.print("\n\nPlease guess either a letter in the word or the entire word: ");
-            String guess = c.getPlayerGuess();
+            String guess = c.getPlayerGuess(guesses);
+            guesses.add(guess);
 
             String guessType = w.isLetterOrWord(guess, staticWord);
 
             if (guessType.equalsIgnoreCase("letter")) {
                 char cGuess = guess.charAt(0);
                 numGuesses = w.checkGuessLetter(staticWord, visibleWord, cGuess, numGuesses, wrongGuesses);
+                Console.clearConsole();
                 c.drawMan(numGuesses);
                 c.drawWord(visibleWord, wrongGuesses);
             } else if (guessType.equalsIgnoreCase("word")) {
-
+                numGuesses = w.checkGuessWord(staticWord, guess, numGuesses);
+                Console.clearConsole();
+                c.drawMan(numGuesses);
+                c.drawWord(visibleWord, wrongGuesses);
             } else {
                 System.out.println("This guess is invalid");
+            }
+
+            if (numGuesses == 0) {
+                System.exit(1337);
             }
 
         }
