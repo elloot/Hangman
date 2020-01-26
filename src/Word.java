@@ -44,7 +44,7 @@ class Word {
         assert word != null;
         for (int i = 0; i < word.length(); i++) {
             if (!(Character.isLetter(word.charAt(i)))) {
-                System.out.print("\"" + word + "\"" + " is not valid, please try again");
+                System.out.print("\"" + word + "\"" + " is not valid, please try again: ");
                 word = null;
                 break;
             }
@@ -84,6 +84,7 @@ class Word {
     //Method that tests if the guessed word is equal to the set word
     int checkGuessWord(String staticWord, String guess, int numGuesses) {
         if (guess.equals(staticWord)) {
+            Console.clearConsole();
             Console.drawWin();
             return numGuesses;
         } else {

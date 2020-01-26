@@ -23,8 +23,6 @@ class Console {
                 System.out.println("     |      / \\ ");
                 System.out.println("     |              Picker wins!");
                 System.out.println("    _|___");
-
-                System.exit(1337);
                 break;
             case 1:
                 System.out.println("      _______");
@@ -99,8 +97,8 @@ class Console {
         }
     }
 
+    //allows the user to select gamemode
     int getSelection() {
-        //asks user for wanted gamemode
         int gameSelect;
         do {
             //saves the program from crashing if input is NaN
@@ -137,6 +135,8 @@ class Console {
         return inWord.toUpperCase();
     }
 
+    //gets the players guess, checks if it is valid
+    //if not, wait for valid guess
     String getPlayerGuess() {
         Word w = new Word(this);
         String guess;
@@ -148,15 +148,20 @@ class Console {
         } while (!(w.isValid(guess)));
         return guess.toUpperCase();
     }
+
+    //tells the players the the guesser has won, exits the program
     static void drawWin() {
-        System.out.println("  _____ _    _ ______  _____ _____ ______ _____    __          _______ _   _  _____");
+        System.out.println("   _____ _    _ ______  _____ _____ ______ _____    __          _______ _   _  _____");
         System.out.println("  / ____| |  | |  ____|/ ____/ ____|  ____|  __ \\   \\ \\        / /_   _| \\ | |/ ____|");
         System.out.println(" | |  __| |  | | |__  | (___| (___ | |__  | |__) |   \\ \\  /\\  / /  | | |  \\| | (___");
         System.out.println(" | | |_ | |  | |  __|  \\___ \\\\___ \\|  __| |  _  /     \\ \\/  \\/ /   | | | . ` |\\___ \\");
         System.out.println(" | |__| | |__| | |____ ____) |___) | |____| | \\ \\      \\  /\\  /   _| |_| |\\  |____) |");
         System.out.println("  \\_____|\\____/|______|_____/_____/|______|_|  \\_\\      \\/  \\/   |_____|_| \\_|_____/");
+
+        System.exit(1338);
     }
 
+    //"clears" the console by printing 50 empty lines
     static void clearConsole() {
         for (int i = 0; i < 50; i++) {
             System.out.println();
