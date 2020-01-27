@@ -72,9 +72,9 @@ class Hangman {
             }
 
             //checks if the guesser has guessed the word correctly, if so the guesser wins
-             if (guesserWin(staticWord, visibleWord)) {
-                 Console.drawWin();
-             }
+            if (guesserWin(staticWord, visibleWord)) {
+                Console.drawWin();
+            }
 
 
         }
@@ -89,7 +89,7 @@ class Hangman {
     private static boolean pickerWin(int numGuesses, String staticWord, ArrayList<Character> visibleWord) {
         if (numGuesses == 0) {
             for (int i = 0; i < staticWord.length(); i++) {
-                visibleWord.add(i, staticWord.charAt(i));
+                visibleWord.set(i, staticWord.charAt(i));
             }
 
             return true;

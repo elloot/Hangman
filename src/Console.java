@@ -93,7 +93,7 @@ class Console {
         System.out.println("\n\n    Incorrect letters:");
         System.out.print("    ");
         for (int i = 0; i < wrongGuesses.size(); i++) {
-            System.out.print(wrongGuesses.get(i) + ", ");
+            System.out.print(wrongGuesses.get(i) + " ");
         }
     }
 
