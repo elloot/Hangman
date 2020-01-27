@@ -17,12 +17,12 @@ class Console {
         switch (numGuesses) {
             case 0:
                 System.out.println("      _______");
-                System.out.println("     |/      |");
-                System.out.println("     |      \\O/");
-                System.out.println("     |       |");
-                System.out.println("     |      / \\ ");
-                System.out.println("     |              Picker wins!");
-                System.out.println("    _|___");
+                System.out.println("     |/      |        _____ _____ _____ _  ________ _____    __          _______ _   _  _____");
+                System.out.println("     |      \\O/      |  __ \\_   _/ ____| |/ /  ____|  __ \\   \\ \\        / /_   _| \\ | |/ ____|");
+                System.out.println("     |       |       | |__) || || |    | ' /| |__  | |__) |   \\ \\  /\\  / /  | | |  \\| | (___");
+                System.out.println("     |      / \\      |  ___/ | || |    |  < |  __| |  _  /     \\ \\/  \\/ /   | | | . ` |\\___ \\");
+                System.out.println("     |               | |    _| || |____| . \\| |____| | \\ \\      \\  /\\  /   _| |_| |\\  |____) |");
+                System.out.println("    _|___            |_|   |_____\\_____|_|\\_\\______|_|  \\_\\      \\/  \\/   |_____|_| \\_|_____/");
                 break;
             case 1:
                 System.out.println("      _______");
