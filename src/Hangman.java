@@ -60,8 +60,17 @@ class Hangman {
                 System.out.println("This guess is invalid");
             }
 
+            //checks if there are no guesses left, if so picker wins
             if (numGuesses == 0) {
                 System.exit(1337);
+            }
+
+            //checks if the guesser has guessed the word correctly, if so the guesser wins
+            for (int i = 0; i < staticWord.length(); i++) {
+                if (!visibleWord.get(i).equals(staticWord.charAt(i))) {
+                } else {
+                    Console.drawWin();
+                }
             }
 
         }
