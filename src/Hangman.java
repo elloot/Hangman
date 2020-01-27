@@ -29,27 +29,36 @@ class Hangman {
             staticWord = c.getPlayerWord();
         }
 
+        //fills an array with underscores equal to the amount of letters
+        //in the chosen word
         ArrayList<Character> visibleWord = new ArrayList<>();
         for (int i= 0; i < staticWord.length(); i++) {
             visibleWord.add('_');
         }
 
-        c.drawMan(numGuesses);
-        c.drawWord(visibleWord, wrongGuesses);
+        //shows the guesser how long the word is
+        drawGameStatus(c, numGuesses, wrongGuesses, visibleWord);
 
+        //loop that lets the guesser guess multiple times
         while (true) {
             //asks the player to guess the word
             System.out.print("\n\nPlease guess either a letter in the word or the entire word: ");
             String guess = c.getPlayerGuess(guesses);
             guesses.add(guess);
 
+            //determines if the guesser is guessing a letter
+            //or a word
             String guessType = w.isLetterOrWord(guess, staticWord);
 
+            //checks the guess differently depending on what type of guess it is
             if (guessType.equalsIgnoreCase("letter")) {
+                //makes guess into character as it is a letter
                 char cGuess = guess.charAt(0);
+                //updates number of guesses and checks if guess is correct
                 numGuesses = w.checkGuessLetter(staticWord, visibleWord, cGuess, numGuesses, wrongGuesses);
                 drawGameStatus(c, numGuesses, wrongGuesses, visibleWord);
             } else if (guessType.equalsIgnoreCase("word")) {
+                //updates number of guesses and checks if guess is correct
                 numGuesses = w.checkGuessWord(staticWord, guess, numGuesses);
                 drawGameStatus(c, numGuesses, wrongGuesses, visibleWord);
             } else {
