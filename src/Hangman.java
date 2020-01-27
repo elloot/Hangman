@@ -14,6 +14,7 @@ class Hangman {
         int numGuesses = 6;
         ArrayList<Character> wrongGuesses = new ArrayList<>();
         ArrayList<String> guesses = new ArrayList<>();
+        boolean guesserWin = false;
 
         //gamemode selection
         System.out.print("Type 1 to play against an advanced AI and type 2 to play against a friend: ");
@@ -67,10 +68,15 @@ class Hangman {
 
             //checks if the guesser has guessed the word correctly, if so the guesser wins
             for (int i = 0; i < staticWord.length(); i++) {
-                if (!visibleWord.get(i).equals(staticWord.charAt(i))) {
-                } else {
-                    Console.drawWin();
+                if (visibleWord.get(i).equals(staticWord.charAt(i))) {
+                    guesserWin = true;
+                } else if (!visibleWord.get(i).equals(staticWord.charAt(i))) {
+                    guesserWin = false;
                 }
+            }
+
+            if (guesserWin) {
+                Console.drawWin();
             }
 
         }

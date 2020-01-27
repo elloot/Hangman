@@ -153,6 +153,7 @@ class Console {
 
     //tells the players the the guesser has won, exits the program
     static void drawWin() {
+        System.out.println();
         System.out.println("   _____ _    _ ______  _____ _____ ______ _____    __          _______ _   _  _____");
         System.out.println("  / ____| |  | |  ____|/ ____/ ____|  ____|  __ \\   \\ \\        / /_   _| \\ | |/ ____|");
         System.out.println(" | |  __| |  | | |__  | (___| (___ | |__  | |__) |   \\ \\  /\\  / /  | | |  \\| | (___");
