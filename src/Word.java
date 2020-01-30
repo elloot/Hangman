@@ -20,14 +20,14 @@ class Word {
         Scanner in;
 
         try {
-            in = new Scanner(new File("./resources/words.txt"));
+            in = new Scanner(new File("resources/words.txt"));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
             in = new Scanner(System.in);
             System.out.println("File not found");
         }
 
-        //writes the content
+        //reds content of word file
         ArrayList<String> words = new ArrayList<>();
         while (in.hasNextLine()) {
             words.add(in.nextLine());
@@ -43,22 +43,22 @@ class Word {
         //and disallows such words
         assert word != null;
 
-        boolean valid = true;
+        //checks each letter in the input word, if it's not a letter it isn't valid
         for (int i = 0; i < word.length(); i++) {
             if (!(Character.isLetter(word.charAt(i)))) {
                 System.out.print("\"" + word + "\"" + " is not valid, please try again: ");
-                valid = false;
-                break;
+                return false;
             }
         }
 
-        return valid;
+        return true;
     }
 
     //checks if the letter that's being guessed has been guessed before
     boolean notPreviousGuess(String guess, ArrayList<String> guesses) {
         boolean allowed = true;
 
+        //checks the current guess against each previous guess
         for (int i = 0; i < guesses.size(); i++) {
             if (guess.equals(guesses.get(i))) {
                 allowed = false;
@@ -70,6 +70,7 @@ class Word {
         return allowed;
     }
 
+    //checks what the player is guessing
     String isLetterOrWord(String guess, String staticWord) {
         if (guess.length() == 1) {
             return "letter";
@@ -80,6 +81,7 @@ class Word {
         }
     }
 
+    //checks if the guessed letter is in the picked word
     int checkGuessLetter(String staticWord, ArrayList<Character> visibleWord, Character guess, int numGuesses, ArrayList<Character> wrongGuesses) {
         boolean correct = false;
         //checks if the guessed letter is in the given word, if it is,
@@ -99,7 +101,7 @@ class Word {
         return numGuesses;
     }
 
-    //Method that tests if the guessed word is equal to the set word
+    //method that checks if the guessed word is equal to the picked word
     int checkGuessWord(String staticWord, String guess, int numGuesses) {
         if (guess.equals(staticWord)) {
             Console.clearConsole();

@@ -81,6 +81,7 @@ class Console {
         }
     }
 
+    //prints the word the player is guessing at, showing underscores if that letter hasn't been guessed
     void drawWord(ArrayList<Character> visibleWord, ArrayList<Character> wrongGuesses) {
         //shows the guesser what letters have been guessed in the word
         System.out.println();

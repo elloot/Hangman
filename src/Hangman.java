@@ -67,7 +67,7 @@ class Hangman {
 
             //checks if there are no guesses left, if so picker wins
             if (pickerWin(numGuesses, staticWord, visibleWord)) {
-                c.drawWord(visibleWord, wrongGuesses);
+                //c.drawWord(visibleWord, wrongGuesses);
                 System.exit(1337);
             }
 
@@ -80,16 +80,25 @@ class Hangman {
         }
     }
 
+    //calls the methods in Console to print game information
     private static void drawGameStatus(Console c, int numGuesses, ArrayList<Character> wrongGuesses, ArrayList<Character> visibleWord) {
         Console.clearConsole();
         c.drawMan(numGuesses);
         c.drawWord(visibleWord, wrongGuesses);
     }
 
+    //checks if the winner has won and prints the word if so
     private static boolean pickerWin(int numGuesses, String staticWord, ArrayList<Character> visibleWord) {
         if (numGuesses == 0) {
+            //sets the visible word to the picked word
             for (int i = 0; i < staticWord.length(); i++) {
                 visibleWord.set(i, staticWord.charAt(i));
+            }
+
+            //prints the picked word
+            System.out.print("\n\n    The correct word was:\n\n    ");
+            for (int i = 0; i < visibleWord.size(); i++) {
+                System.out.print(visibleWord.get(i));
             }
 
             return true;
@@ -98,12 +107,14 @@ class Hangman {
         return false;
     }
 
+    //checks if the guesser has won
     private static boolean guesserWin(String staticWord, ArrayList<Character> visibleWord) {
         for (int i = 0; i < staticWord.length(); i++) {
             if (!visibleWord.get(i).equals(staticWord.charAt(i))) {
                 return false;
             }
         }
+
         return true;
     }
 }
