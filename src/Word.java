@@ -19,13 +19,7 @@ class Word {
     String getWord() {
         Scanner in;
 
-        try {
-            in = new Scanner(new File("resources/words.txt"));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-            in = new Scanner(System.in);
-            System.out.println("File not found");
-        }
+        in = new Scanner(getClass().getResourceAsStream("resources/words.txt"));
 
         //reds content of word file
         ArrayList<String> words = new ArrayList<>();
